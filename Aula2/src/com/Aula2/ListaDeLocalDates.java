@@ -1,5 +1,8 @@
 package com.Aula2;
+import org.w3c.dom.ls.LSOutput;
+
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Arrays;
 
 /**
@@ -21,12 +24,30 @@ public class ListaDeLocalDates {
         this.tam = 0;
     }
 
-    public void insereData (LocalDate data) {
+    public void insereData () {
         if (tam < datas.length)
-            this.datas[tam++] = data;
+            this.datas[tam++] = LocalDate.of(2021, tam, 07);
     }
 
     public String toString () {
         return "ListaDeLocalDates(" + Arrays.toString(this.datas) + ")";
     }
+
+    public String paraString (LocalDate data) {
+        return "Data: " + data.toString();
+    }
+
+    public LocalDate dataMaisProxima (LocalDate data) {
+        int min = 10000, aux = 0;
+        LocalDate res = datas[0];
+        for (int i = 0; i < tam; i++) {
+            Period espacoTempo = Period.between(data, datas[i]);
+            if (espacoTempo.getDays() < min) {
+                res = datas[i];
+                min = espacoTempo.getDays();
+            }
+        }
+        return res;
+    }
+
 }

@@ -73,16 +73,22 @@ public class Main {
     }
 
     public static void ex3a () {
-        l.insereData(LocalDate.now());
+        l.insereData();
         System.out.println("resultado: " + l.toString());
     }
-
+    public static void ex3b () {
+        l.insereData();
+        LocalDate res = l.dataMaisProxima(LocalDate.now());
+        System.out.println("Compara: " + LocalDate.now().toString());
+        System.out.println(l.paraString(res));
+    }
     public static void main(String[] args) {
         f = new Ficha2();
         sc = new Scanner(System.in);
         l = new ListaDeLocalDates(10);
        // ex3a();
-        ex2a();
+        //ex2a();
+        ex3b();
         sc.close();
     }
 }
