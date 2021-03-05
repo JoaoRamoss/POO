@@ -44,6 +44,13 @@ public class Ficha2 {
         System.arraycopy(res, 0, resultado, 0, ind);
         return resultado;
     }
+    //Exericio 2 alinea a
+    public int[][] lerAt (int[][] notasTurma, int aluno, int []notas_aluno) {
+        for (int j = 0; j < 5; j++) {
+            notasTurma[aluno][j] = notas_aluno[j];
+        }
+        return notasTurma;
+    }
 
 
 }

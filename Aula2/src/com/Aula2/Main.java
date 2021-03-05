@@ -57,6 +57,21 @@ public class Main {
             System.out.println("Comuns: " + Arrays.toString(res));
     }
 
+    public static void ex2a () {
+        int [][] notasTurma = new int[5][5];
+        int[] notasAluno = new int[5];
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Insira as notas do aluno " + (i+1) + ": ");
+            for (int j = 0; j < 5; j++) {
+                notasAluno[j] = sc.nextInt();
+            }
+            notasTurma = f.lerAt(notasTurma, i, notasAluno);
+        }
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Notas do aluno " + (i+1) + ": " + Arrays.toString(notasTurma[i]));
+        }
+    }
+
     public static void ex3a () {
         l.insereData(LocalDate.now());
         System.out.println("resultado: " + l.toString());
@@ -66,7 +81,8 @@ public class Main {
         f = new Ficha2();
         sc = new Scanner(System.in);
         l = new ListaDeLocalDates(10);
-        ex3a();
+       // ex3a();
+        ex2a();
         sc.close();
     }
 }
