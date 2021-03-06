@@ -30,10 +30,12 @@ public class ListaDeLocalDates {
     }
 
     public String toString () {
-        return "ListaDeLocalDates(" + Arrays.toString(this.datas) + ")";
+
+        return "Datas Disponíveis: (" + Arrays.toString(this.datas) + ")";
     }
 
     public String paraString (LocalDate data) {
+
         return "Data: " + data.toString();
     }
 
@@ -42,9 +44,9 @@ public class ListaDeLocalDates {
         LocalDate res = datas[0];
         for (int i = 0; i < tam; i++) {
             Period espacoTempo = Period.between(data, datas[i]);
-            if (espacoTempo.getDays() < min) {
+            if (Math.abs(espacoTempo.getDays()) < min) {
                 res = datas[i];
-                min = espacoTempo.getDays();
+                min = Math.abs(espacoTempo.getDays());
             }
         }
         return res;
