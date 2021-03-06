@@ -28,14 +28,10 @@ public class ListaDeLocalDates {
             this.datas[tam++] = LocalDate.of(2021, tam, 07);
     }
 
+    //Exercicio 3 alinea c
     public String toString () {
 
         return "Datas Disponíveis: (" + Arrays.toString(this.datas) + ")";
-    }
-
-    public String paraString (LocalDate data) {
-
-        return "Data: " + data.toString();
     }
 
     public LocalDate dataMaisProxima (LocalDate data) {

@@ -1,7 +1,5 @@
 package com.Aula2;
 
-import java.time.LocalDate;
-
 public class Ficha2 {
     //exercicio 1 alinea a
     public int minimo (int[] array) {

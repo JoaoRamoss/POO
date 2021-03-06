@@ -7,6 +7,7 @@ public class Main {
     private static Ficha2 f;
     private static ListaDeLocalDates l;
     private static Scanner sc;
+    private static Ex4 f4;
 
     public static void ex1a () {
         System.out.println("Quantos numeros vai ler? ");
@@ -85,13 +86,38 @@ public class Main {
         System.out.println("Data Mais Próxima: " + res.toString());
         System.out.println(l.toString());
     }
+
+    public static void ex4a() {
+        int [] v = new int [10];
+        for (int i = 0, k = 10; i < 10; i++, k--) {
+            v[i] = k;
+        }
+        System.out.println("Array inserido: " + Arrays.toString(v));
+        v = f4.ordena(v);
+        System.out.println("Array ordenado: " + Arrays.toString(v));
+    }
+
+    public static void ex4b (int x) {
+        int [] v = new int [10];
+        for (int i = 0, k = 10; i < 10; i++, k--) {
+            v[i] = k;
+        }
+        v = f4.ordena(v);
+        int res = f4.procura_binaria(v, x);
+        System.out.println("Array inserido: " + Arrays.toString(v));
+        System.out.println("Encontrado no índice " + res);
+    }
+
     public static void main(String[] args) {
         f = new Ficha2();
         sc = new Scanner(System.in);
         l = new ListaDeLocalDates(10);
+        f4 = new Ex4();
         //ex3a();
         //ex2a();
-        ex3b();
+        //ex3b();
+        //ex4a();
+        ex4b(5);
         sc.close();
     }
 }
