@@ -51,11 +51,12 @@ public class Ex5 {
 
     public String [] stringsReps (String [] array) {
         String [] aux = new String [array.length];
-        Boolean presente = false;
+
         int res = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = i+1; j < array.length; j++) {
                 if (array[i].equals(array[j])) {
+                    Boolean presente = false;
                     //Verifica se o elemento repetido ja foi ou nao inserido no array aux.
                     for (String elem : aux) {
                         if (array[j].equals(elem)) {
