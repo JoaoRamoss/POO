@@ -8,6 +8,7 @@ public class Main {
     private static ListaDeLocalDates l;
     private static Scanner sc;
     private static Ex4 f4;
+    private static Ex5 f5;
 
     public static void ex1a () {
         System.out.println("Quantos numeros vai ler? ");
@@ -108,16 +109,46 @@ public class Main {
         System.out.println("Encontrado no índice " + res);
     }
 
+    public static void ex5a () {
+        String [] array = f5.criaArrayString();
+        array = f5.removeReps(array);
+        System.out.println("Array final: " + Arrays.toString(array));
+    }
+
+    public static void ex5b() {
+        String [] array = f5.criaArrayString();
+        String maior = f5.maiorString(array);
+        System.out.println("Maior String: " + maior);
+    }
+
+    public static void ex5c () {
+        String [] array = f5.criaArrayString();
+        String [] reps = f5.stringsReps(array);
+        System.out.println("Repetidos: " + Arrays.toString(reps));
+    }
+
+    public static void ex5d () {
+        String [] array = f5.criaArrayString();
+        String teste = new String ("cócó");
+        int reps = f5.quantasReps(teste, array);
+        System.out.println("A String \"" + teste + "\" aparece " + reps + " vezes.");
+    }
+
     public static void main(String[] args) {
         f = new Ficha2();
         sc = new Scanner(System.in);
         l = new ListaDeLocalDates(10);
         f4 = new Ex4();
+        f5 = new Ex5();
         //ex3a();
         //ex2a();
         //ex3b();
         //ex4a();
-        ex4b(5);
+        //ex4b(5);
+        //ex5a();
+        //ex5b();
+        //ex5c();
+        ex5d();
         sc.close();
     }
 }
