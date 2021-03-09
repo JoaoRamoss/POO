@@ -9,6 +9,8 @@ public class Main {
     private static Scanner sc;
     private static Ex4 f4;
     private static Ex5 f5;
+    private static Ex6 f6;
+    private static Ex7 f7;
 
     public static void ex1a () {
         System.out.println("Quantos numeros vai ler? ");
@@ -134,21 +136,46 @@ public class Main {
         System.out.println("A String \"" + teste + "\" aparece " + reps + " vezes.");
     }
 
+    public static void ex6a () {
+        int [][] matriz = f6.lerMatriz();
+        f6.toString(matriz);
+    }
+
+    public static void ex6b () {
+        int [][] m1 = f6.lerMatriz();
+        int [][] m2 = f6.lerMatriz();
+        int [][] soma = f6.somaMatrizes(m1, m2);
+        System.out.println("Soma: ");
+        f6.toString(soma);
+    }
+
+    public static void ex6c() {
+        int [][] m1 = f6.lerMatriz();
+        int [][] m2 = f6.lerMatriz();
+        Boolean iguais = f6.matrizesIguais(m1 ,m2);
+        System.out.println("Resultado de comparação: " + iguais);
+    }
+
+    public static void ex6d() {
+        int [][] m = f6.lerMatriz();
+        int [][] res = f6.matrizOposta(m);
+        System.out.println("Matriz oposta: ");
+        f6.toString(res);
+    }
+
+    public static void ex7 () {
+        f7.jogarEuroMilhoes();
+    }
+
     public static void main(String[] args) {
         f = new Ficha2();
         sc = new Scanner(System.in);
         l = new ListaDeLocalDates(10);
         f4 = new Ex4();
         f5 = new Ex5();
-        //ex3a();
-        //ex2a();
-        //ex3b();
-        //ex4a();
-        //ex4b(5);
-        //ex5a();
-        //ex5b();
-        //ex5c();
-        ex5d();
+        f6 = new Ex6();
+        f7 = new Ex7();
+        ex7();
         sc.close();
     }
 }
