@@ -27,9 +27,21 @@ public class Main {
         String wtf = j.toString();
         System.out.println(wtf);
         System.out.println("Iguais: " + j.equals(j2));
+        j.endGame();
+    }
+    public static void testaLampada () {
+        Lampada l = new Lampada();
+        l.lampECO();
+        System.out.println("Lâmpada ligada");
+        double consumo = l.totalConsumo();
+        System.out.println("Consumo ate agora: " + consumo);
+        l.lampOFF();
+        double total = l.periodoConsumo();
+        System.out.println("Gasto no total: " + total);
     }
 
     public static void main(String[] args) {
-        testaJogo();
+        //testaJogo();
+        testaLampada();
     }
 }
