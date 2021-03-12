@@ -5,8 +5,8 @@ import java.util.LinkedHashMap;
 
 public class Lampada {
 
-    private static double consumoEco = 0.3;
-    private static double consumoNormal = 1.4;
+    private static final double consumoEco = 0.3;
+    private static final double consumoNormal = 1.4;
     private enum Eco {
         ECO_ON,
         ECO_OFF
@@ -37,12 +37,16 @@ public class Lampada {
     public Lampada(Lampada l) {
         this.status = l.status;
         this.eco = l.eco;
-        this.start = 0;
+        this.start = l.start;
         this.gasto = 0;
     }
 
     public Lampada clone () {
         return new Lampada (this);
+    }
+
+    public String toString() {
+        return "Estado: " + this.status + " | " + "Eco: " + this.eco;
     }
 
     // a)
