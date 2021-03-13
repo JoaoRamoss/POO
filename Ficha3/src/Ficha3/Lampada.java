@@ -1,8 +1,5 @@
 package Ficha3;
 
-import java.time.temporal.JulianFields;
-import java.util.LinkedHashMap;
-
 public class Lampada {
 
     private static final double consumoEco = 0.3;
