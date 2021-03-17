@@ -53,4 +53,20 @@ public class ListaDeTriangulos {
     public void mudaA (int pos, Ponto p) {
         this.tris.get(pos).setA(p);
     }
+
+    public boolean equals (Object o) {
+        if (this == o) return true;
+        if (o == null || o.getClass() != this.getClass()) return false;
+        ListaDeTriangulos lt = (ListaDeTriangulos) o;
+        return this.tris.equals(lt.getTris());
+    }
+    public String toString () {
+        StringBuilder sb =  new StringBuilder("Lista de triangulos: ");
+        sb.append(this.tris.toString());
+        return sb.toString();
+    }
+
+    public ListaDeTriangulos clone() {
+        return new ListaDeTriangulos(this);
+    }
 }
