@@ -1,10 +1,10 @@
 package Ficha3;
 
+import java.security.cert.TrustAnchor;
+
 public class Triangulo {
 
-    private Ponto a;
-    private Ponto b;
-    private Ponto c;
+    private Ponto a, b, c;
 
     public Triangulo () {
         this.a = new Ponto();
@@ -13,47 +13,51 @@ public class Triangulo {
     }
 
     public Triangulo (Ponto a, Ponto b, Ponto c) {
-        this.a = a.clone();
-        this.b = b.clone();
-        this.c = c.clone();
+        this.a = new Ponto();
+        this.b = new Ponto();
+        this.c = new Ponto();
     }
 
     public Triangulo (Triangulo t) {
-        this.a = t.getA().clone();
-        this.b = t.getB().clone();
-        this.c = t.getC().clone();
+        this.a = t.getA();
+        this.b = t.getB();
+        this.c = t.getC();
     }
 
     public Ponto getA () {
-        return this.a;
+        return this.a.clone();
     }
 
     public Ponto getB () {
-        return this.b ;
+        return this.b.clone();
     }
-
     public Ponto getC () {
-        return this.c;
+        return this.c.clone();
     }
 
-    public double dist (Ponto p1, Ponto p2) {
-        double dx = Math.abs(p1.getX() - p2.getX());
-        double dy = Math.abs(p1.getY() - p2.getY());
-        return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+    public void setA (Ponto a) {
+        this.a = a.clone();
     }
 
-    public double[] getLados () {
-        double [] lados = {dist(this.a, this.b), dist(this.b, this.c), dist(this.a, this.c)};
-        return lados;
+    public void setB (Ponto b) {
+        this.b = b.clone();
+    }
+
+    public void setC (Ponto c) {
+        this.c = c.clone();
+    }
+
+    public double [] getLados () {
+        return new double[]{this.a.distancia(b), this.b.distancia(c), this.a.distancia(c)};
     }
 
     public double calculaAreaTriangulo () {
         double [] lados = getLados();
-        double l = (lados[0] + lados[1] + lados[2]) / 2;
+        double l = (lados [0] + lados[1] + lados[2]) / 2;
         return Math.sqrt(l * (l-lados[0]) * (l-lados[1]) * (l-lados[2]));
     }
 
-    public double calculaPerimetroTriangulo () {
+    public double calculaPerimetro () {
         double [] lados = getLados();
         return lados[0] + lados[1] + lados[2];
     }
@@ -61,7 +65,9 @@ public class Triangulo {
     public double calculaAltura () {
         double minY = Double.POSITIVE_INFINITY;
         double maxY = Double.NEGATIVE_INFINITY;
+
         double [] ys = {this.a.getY(), this.b.getY(), this.c.getY()};
+
         for (double y : ys) {
             if (y < minY) minY = y;
             if (y > maxY) maxY = y;
@@ -70,23 +76,24 @@ public class Triangulo {
     }
 
     public String toString () {
-        final StringBuffer s = new StringBuffer("Triangulo {");
-        s.append("\na = ").append(a.toString());
-        s.append("\nb = ").append(b.toString());
-        s.append("\nc = ").append(c.toString());
+        StringBuilder s = new StringBuilder("Triangulo {");
+        s.append("\na = ").append(this.a.toString());
+        s.append("\nb = ").append(this.b.toString());
+        s.append("\nc = ").append(this.c.toString());
         s.append("\n}");
         return s.toString();
     }
 
+
     public boolean equals (Object o) {
-        if (this == o) return true;
+        if (o == this) return true;
         if (o == null || o.getClass() != this.getClass()) return false;
-        Triangulo triangulo = (Triangulo) o;
-        return this.a.equals(Triangulo.a) && this.b.equals(triangulo.b)
-                && this.c.equals(triangulo.c);
+        Triangulo t = (Triangulo) o;
+        return this.a.equals(t.getA()) && this.b.equals(t.getB()) && this.c.equals(t.getC());
     }
 
     public Triangulo clone () {
         return new Triangulo(this);
     }
+
 }
